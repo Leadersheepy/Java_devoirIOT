@@ -15,6 +15,7 @@ public class Panier {
     @Id
     private String id;
     private String idDuProduit;
+    private String nomDuProduit;
     private String statut;
     private String regler;
     private Number prix;
@@ -22,8 +23,10 @@ public class Panier {
 
     private List<Product> produits;
 
-    public Panier() {
+    public Panier(){
         this.statut = "en_cours";
-        this.total = 0.0;
+        this.prix = 0.0;
     }
+
+
 }

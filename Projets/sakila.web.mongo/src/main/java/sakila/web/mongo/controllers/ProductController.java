@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import sakila.web.mongo.entities.Panier;
+import sakila.web.mongo.entities.Product;
 import sakila.web.mongo.services.ProductService;
 
 import java.util.List;
@@ -17,12 +18,12 @@ public class ProductController {
     private ProductService productService;
 
     @GetMapping("/products")
-    public ResponseEntity<List<Panier.Product>> getAllProduct() {
+    public ResponseEntity<List<Product>> getAllProduct() {
         return ResponseEntity.ok().body(productService.getAllProduct());
     }
 
     @PostMapping("/products")
-    public ResponseEntity<Panier.Product> createProduct(@RequestBody Panier.Product product) {
+    public ResponseEntity<Product> createProduct(@RequestBody Product product) {
         return ResponseEntity.ok().body(this.productService.createProduct(product));
     }
 
