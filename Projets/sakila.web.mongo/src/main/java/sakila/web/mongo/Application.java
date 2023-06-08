@@ -15,6 +15,12 @@ public class Application implements CommandLineRunner{
 
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);
+		Produit produit1 = new Produit("Produit 1", "10");
+		Produit produit2 = new Produit("Produit 2", "20");
+
+		Produit produitParent = new Produit("Produit parent", "30");
+		produitParent.ajouterProduit(produit1);
+		produitParent.ajouterProduit(produit2);
 	}
 
 	private LocalDateTime startTime;
@@ -30,6 +36,7 @@ public class Application implements CommandLineRunner{
 		var url = String.format("http://localhost:%d%s",serverPort,rootPath);
 		log.info("Start Server url :{}",url);
 	}
+
 
 	@Bean
 	public LocalDateTime getStartTime(){

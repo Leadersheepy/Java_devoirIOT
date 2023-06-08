@@ -1,4 +1,4 @@
-package sakila.web.mongo.controller;
+package sakila.web.mongo.controllers;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

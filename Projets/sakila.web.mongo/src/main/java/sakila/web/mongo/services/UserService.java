@@ -5,8 +5,11 @@ import sakila.web.mongo.entities.User;
 import java.util.List;
 
 public interface UserService {
-    User create(User user);
-    User read(String id);
-    List<User> readAll();
+    
+    List<User> getAllUser();
+    
+    User createUser(User user);
+
+    void deleteUser(String userId);
 
 }

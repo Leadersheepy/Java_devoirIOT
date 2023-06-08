@@ -4,9 +4,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import sakila.web.mongo.entities.User;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
     @Slf4j
@@ -17,7 +14,7 @@ class UserServiceImplTest {
 
     @Test
     void create() {
-        User user = new User(null, "Marine","TESTS");
+        User user = new User(null, "Marine","TEST");
         service.create(user);
         log.trace("{}",user);
     }

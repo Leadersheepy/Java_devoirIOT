@@ -7,26 +7,33 @@ import sakila.web.mongo.entities.User;
 import sakila.web.mongo.repositories.UserRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
     @Slf4j
         @AllArgsConstructor
 public class UserServiceImpl implements UserService{
 
-    private UserRepository repository;
+    private UserRepository userRepository;
 
     @Override
-    public User create(User user) {
-        return repository.save(user);
+    public List<User> getAllUser() {
+        return userRepository.findAll();
     }
 
     @Override
-    public User read(String id) {
-        return repository.findById(id).orElse(null);
+    public User createUser(User user) {
+        return userRepository.save(user);
     }
 
     @Override
-    public List<User> readAll() {
-        return repository.findAll();
+    public void deleteUser(String userId) {
+        Optional<User> userDb = this.userRepository.findById(userId);
+
+        if (userDb.isPresent()) {
+             this.userRepository.delete(userDb.get());
+        } else {
+            System.out.println("Erreur, cet user n'existe pas");
+        }
     }
 }
