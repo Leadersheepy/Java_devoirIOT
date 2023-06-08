@@ -46,5 +46,8 @@ public class PanierService {
         this.products = products;
     }
 
+    public Object getAllPanier() {
+        return products;
+    }
 }
 
